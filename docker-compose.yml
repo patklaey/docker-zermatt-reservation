@@ -1,0 +1,36 @@
+version: '3.2'
+services:
+  api:
+    image: patklaey/zermatt-api
+    container_name: zermatt-api
+    restart: always
+    depends_on:
+      - database
+    ports:
+      - 5000:5000
+    volumes:
+      - ./config.py:/home/html/ZermattReservationAPI/config/config.py
+  web:
+    image: patklaey/zermatt-web
+    container_name: zermatt-web
+    restart: always
+    depends_on:
+      - api
+    ports:
+      - 8004:80
+    volumes:
+      - ./config.js:/usr/share/nginx/html/js/config.js
+  database:
+    image: webhippie/mariadb:latest
+    container_name: zermatt-db
+    restart: always
+    environment:
+      - MARIADB_ROOT_PASSWORD=${DB_ROOT_PASSWORD}
+      - MARIADB_USERNAME=${DB_USERNAME}
+      - MARIADB_PASSWORD=${DB_PASSWORD}
+      - MARIADB_DATABASE=${DB_NAME}
+    volumes:
+      - database:/var/lib/mysql
+      - /root/db_backup:/backup
+volumes:
+  database:
