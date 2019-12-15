@@ -71,3 +71,12 @@ application to be run on the client machine, the ```API_ENDPOINT``` needs to poi
     source .env
     docker exec zermatt-db sh -c "mysql --default-character-set=latin1 -u ${DB_USERNAME} --password=${DB_PASSWORD} ${DB_NAME} < /root/zermatt-utf.sql"  
     ```
+    
+## Troubleshooting
+
+1. Should you have an issues with accessing the DB (wrong password) make sure in ```.env``` the DB passwords are not in
+quotes, that somehow does not work
+1. Also if you get errors when initializing the DB, a error like 
+```pymysql.err.InternalError: Packet sequence number wrong - got 1 expected 0``` can be related to the DB passwords.
+Simply change the passwords in ```.env``` to a very simple one (such that no quotes are needed), and try again. If it
+works now, it's password related, otherwise there is another issue. 
