@@ -3,7 +3,7 @@ flask_sqlalchemy
 flask_cors
 flask_httpauth
 passlib
-pymysql==0.6.6
+pymysql
 flask-jwt-extended
 pytz
 python-dateutil
