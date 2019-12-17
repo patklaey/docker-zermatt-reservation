@@ -10,6 +10,11 @@ COPY requirements.txt /home/html/
 
 RUN pip3 install -r /home/html/requirements.txt
 
+# Set the locale
+ENV LANG C.UTF-8
+ENV LANGUAGE C.UTF-8
+ENV LC_ALL C.UTF-8
+
 WORKDIR /home/html
 
 RUN wget https://github.com/patklaey/ZermattReservationAPI/archive/v${version}.tar.gz
@@ -21,7 +26,6 @@ WORKDIR /home/html/ZermattReservationAPI
 COPY ./uwsgi.ini /home/html/ZermattReservationAPI/
 RUN mkdir -p /var/log/uwsgi/ 
 
-#CMD uwsgi --ini /home/html/ZermattReservationAPI/uwsgi.ini
-CMD uwsgi --socket 0.0.0.0:5000 --protocol=http --uid www-data --gid www-data --enable-threads -w main:app 
+CMD uwsgi --ini /home/html/ZermattReservationAPI/uwsgi.ini
 
 EXPOSE 5000
