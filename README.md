@@ -27,11 +27,11 @@ application to be run on the client machine, the ```API_ENDPOINT``` needs to poi
     ```
 1. Initialize the database
     ```bash
-    docker exec zermatt-api sh -c "export LANG=C.UTF-8 && export LC_ALL=C.UTF-8 && export FLASK_APP=cli && flask initdb"
+    docker exec zermatt-api sh -c "export FLASK_APP=cli && flask initdb"
     ```
 1. Add an admin user
     ```bash
-    docker exec zermatt-api sh -c "export LANG=C.UTF-8 && export LC_ALL=C.UTF-8 && export FLASK_APP=cli && flask addadminuser"
+    docker exec zermatt-api sh -c "export FLASK_APP=cli && flask addadminuser"
     ```
 1. Point your browser to your zermatt reservation page, login as admin and change the password :)
 
