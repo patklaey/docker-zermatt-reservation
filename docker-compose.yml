@@ -1,7 +1,7 @@
 version: '3.2'
 services:
   api:
-    image: patklaey/zermatt-api
+    image: patklaey/zermatt-api:1.0.1
     container_name: zermatt-api
     restart: always
     depends_on:
@@ -11,7 +11,7 @@ services:
     volumes:
       - ./config.py:/home/html/ZermattReservationAPI/config/config.py
   web:
-    image: patklaey/zermatt-web
+    image: patklaey/zermatt-web:1.1
     container_name: zermatt-web
     restart: always
     depends_on:

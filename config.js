@@ -1,7 +1,7 @@
 var configModule = angular.module('configModule', []);
 
 configModule.constant("CONFIG", {
-    "API_ENDPOINT": "&API-Endoint&",
+    "API_ENDPOINT": "https://zermatt-api.patklaey.ch",
     "CSRF_HEADER_NAME": "X-CSRF-TOKEN"
 });
 
