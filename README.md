@@ -7,6 +7,10 @@
     git clone https://github.com/patklaey/docker-zermatt-reservation
     cd docker-zermatt-reservation
     ```
+1. Copy the env-template to your instance of ```.env```
+    ```bash
+    cp .env-template .env
+    ```
 1. Modify the ```.env``` file to change passwords and other settings
     ```bash
     vi .env
@@ -42,6 +46,10 @@ application to be run on the client machine, the ```API_ENDPOINT``` needs to poi
     ```bash
     git clone https://github.com/patklaey/docker-zermatt-reservation
     cd docker-zermatt-reservation
+    ```
+1. Copy the env-template to your instance of ```.env```
+    ```bash
+    cp .env-template .env
     ```
 1. Modify the ```.env``` file to change passwords and other settings to match current setup 
     ```bash
